@@ -1,6 +1,7 @@
 import json
 import boto3
 import os
+import uuid
 
 # Inicializa o cliente do DynamoDB na região sa-east-1
 dynamodb = boto3.resource('dynamodb', region_name='sa-east-1')
@@ -12,8 +13,8 @@ def lambda_handler(event, context):
         # Extrai o corpo da requisição (assumindo JSON)
         body = json.loads(event.get('body', '{}'))
 
-        # Gera um ID para o item
-        item_id = body.get('id', '123')
+        # Gera um UUID para o ID do item
+        item_id = str(uuid.uuid4())
 
         # Cria o item a ser inserido no DynamoDB
         item = {
