@@ -54,9 +54,10 @@ aws configure
 
 ### 3. Criar o Arquivo Zip da Lambda
 
-No diretório do projeto, crie um arquivo .zip contendo o código da função Lambda e mova o zip para o diretório infra:
+No diretório do projeto, instale as dependencias e depois crie um arquivo .zip contendo o código da função Lambda e mova o zip para o diretório infra:
 
 ```bash
+pip install -r app/requirements.txt -t app/
 cd app
 zip lambda_function.zip lambda_function.py
 mv lambda_function.zip ../infra/
